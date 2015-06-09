@@ -122,6 +122,11 @@ public class Builder {
         style = new NotificationCompat.BigTextStyle()
                 .bigText(options.getText());
 
+        NotificationCompat.WearableExtender wearableExtender =
+            new NotificationCompat.WearableExtender()
+                .setHintHideIcon(true)
+                .setBackground(options.getIconBitmap());
+
         builder = new NotificationCompat.Builder(context)
                 .setDefaults(0)
                 .setContentTitle(options.getTitle())
@@ -133,7 +138,8 @@ public class Builder {
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
                 .setStyle(style)
-                .setLights(options.getLedColor(), 500, 500);
+                .setLights(options.getLedColor(), 500, 500)
+                .extend(wearableExtender);
 
         if (sound != null) {
             builder.setSound(sound);
