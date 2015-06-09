@@ -124,7 +124,7 @@ public class Builder {
 
         NotificationCompat.WearableExtender wearableExtender =
             new NotificationCompat.WearableExtender()
-                .setHintHideIcon(true)
+                //.setHintHideIcon(true)
                 .setBackground(options.getIconBitmap());
 
         builder = new NotificationCompat.Builder(context)
